@@ -9,7 +9,7 @@ with λ as expected value. Assume λ is 3 and 4 for rental requests at locations
 for returns. We can earn $10 for one car rental and cost $2 for moving one car overnight. <br />T
 The original description about Jack's cars rental problem can be found in [here](https://webdocs.cs.ualberta.ca/~sutton/book/the-book.html).
 
-# Implementation
+## Implementation
 Running the entire process, I first form matrices representing environment's dynamics, which is associated <br />
 with triplet (state, next_state, action). State, in this case, can have 441 choices (number of cars in <br />
 location A/B can be [0,20]-->21X21=441), and action may be +5~-5 (sign refers to moving cars from A to <br />
@@ -19,7 +19,7 @@ we load precomuted dynamics matrices. It costs about 30 minutes in my computer t
 to the above setting. My original intention is to form the matrices using parallel programming, which really <br />
 takes advantages in the formulation of this problem. Perhaps I will implement it using Tensorflow afterward.
 
-# Result
+## Result
 The following shows errors of value function in policy evaluation, the improved policy in that iteration <br />
 (the one shown in the figure is the optimal policy), and the error between improved policy and original <br />
 policy (error = 0 means we get the optimal policy). <br />
@@ -27,12 +27,12 @@ policy (error = 0 means we get the optimal policy). <br />
 row[0:20] --> number of cars in location A is 0~20 <br />
 col[0:20] --> number of cars in location B is 0~20 <br />
 
-# Requirement
-numpy<br />
-scipy<br />
-argparse<br />
+## Dependencies
+[numpy](http://www.numpy.org)<br />
+[scipy](http://www.scipy.org)<br />
+[argparse](https://docs.python.org/3/library/argparse.html)<br />
 
-# How to run
+## How to run
 If using the precomputed matrices associated with environmental dynamics, just type in your terminal <br />
 ```
 $ python main.py
@@ -51,5 +51,5 @@ $ python main.py --help
 There are several parameters able to be adjusted. <br />
 Also, you can modify default value in file parameters.py <br />
 
-# Author
+## Author
 Tsun-Hsuang, Johnson, Wang
