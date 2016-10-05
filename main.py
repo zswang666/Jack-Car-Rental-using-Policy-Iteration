@@ -26,16 +26,18 @@ def main():
 						help='Money earned from renting a car, default 4')
 	parser.add_argument('--move_cost', type=int, default=MOVE_COST,
 						help='Cost of moving one car from one place to the other, default 2')
-	parser.add_argument('--gamma', type=int, default=GAMMA,
+	parser.add_argument('--gamma', type=float, default=GAMMA,
 						help='Discount factor of MDP, default 0.9')
+	parser.add_argument('--to_form_all', type=bool, default=False,
+						help='True if you want to form new matrices associated with problem setting, default False')
 	parser.add_argument('--P_all_filepath', type=str, default=DEFAULT_P_PATH,
-						help='File path of precomputed P_all matrix, default P_all_20_5.npy')
+						help='File path of precomputed P_all matrix, default dynamics/P_all_20_5.npy')
 	parser.add_argument('--R_all_filepath', type=str, default=DEFAULT_R_PATH,
-						help='File path of precomputed R_all matrix, default R_all_20_5.npy')
+						help='File path of precomputed R_all matrix, default dynamics/R_all_20_5.npy')
 	config = parser.parse_args()
 
 	model = Jack_Cars_Model.Model(config)
-	model.train(POLICY_EVAL_TOL, to_form_all=False)
+	model.train(POLICY_EVAL_TOL, to_form_all=config.to_form_all)
 	optim_policy = model.policy 
 	optim_policy = np.reshape(optim_policy, (N_A,N_B))
 	# print('optimal policy:')
