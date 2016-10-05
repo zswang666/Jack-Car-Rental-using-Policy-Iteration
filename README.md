@@ -10,7 +10,14 @@ for returns. We can earn $10 for one car rental and cost $2 for moving one car o
 The original description about Jack's cars rental problem can be found in [here](https://webdocs.cs.ualberta.ca/~sutton/book/the-book.html).
 
 # Implementation
-Still working on
+Running the entire process, I first form matrices representing environment's dynamics, which is associated <br />
+with triplet (state, next_state, action). State, in this case, can have 441 choices (number of cars in <br />
+location A/B can be [0,20]-->21X21=441), and action may be +5~-5 (sign refers to moving cars from A to <br />
+B or conversely). The matrices formed are 11X21X21 transition matrix and reward matrix. For the upcoming <br />
+dynamic programming (DP), we look up the matrices just formed. DP in policy iteration is pretty fast if <br />
+we load precomuted dynamics matrices. It costs about 30 minutes in my computer to form matrices corresponding <br />
+to the above setting. My original intention is to form the matrices using parallel programming, which really <br />
+takes advantages in the formulation of this problem. Perhaps I will implement it using Tensorflow afterward.
 
 # Result
 The following shows errors of value function in policy evaluation, the improved policy in that iteration <br />
