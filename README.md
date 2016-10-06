@@ -17,7 +17,9 @@ B or conversely). The matrices formed are 11X21X21 transition matrix and reward 
 dynamic programming (DP), we look up the matrices just formed. DP in policy iteration is pretty fast if <br />
 we load precomuted dynamics matrices. It costs about 30 minutes in my computer to form matrices corresponding <br />
 to the above setting. My original intention is to form the matrices using parallel programming, which really <br />
-takes advantages in the formulation of this problem. Perhaps I will implement it using Tensorflow afterward.
+takes advantages in the formulation of this problem. Perhaps I will implement it using Tensorflow afterward. <br />
+Also, improvement of value function for every state is checked to make sure we get the improved policy in each <br />
+iteration.
 
 ## Result
 The following shows errors of value function in policy evaluation, the improved policy in that iteration <br />
